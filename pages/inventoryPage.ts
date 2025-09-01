@@ -12,7 +12,10 @@ export class InventoryPage {
   async isLoaded() {
     // Both URL and UI checks
     await expect(this.page).toHaveURL(/.*inventory.html/);
-    await expect(this.page.locator(this.inventoryContainer)).toBeVisible();
-    await expect(this.page.locator(this.title)).toHaveText('Products');
+
+    // Pick the first matched element to satisfy strict mode
+    await expect(this.page.locator(this.inventoryContainer).first()).toBeVisible();
+
+    await expect(this.page.locator(this.title).first()).toHaveText('Products');
   }
 }

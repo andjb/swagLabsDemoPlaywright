@@ -59,3 +59,4 @@ test.describe('SauceDemo Login Tests', () => {
     await loginPage.assertErrorMessage('Password is required');
   });
 });
+  
